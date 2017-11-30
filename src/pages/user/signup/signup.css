@@ -1,0 +1,11 @@
+.pg-wrap{
+  margin: 50px auto;
+  width: 500px;
+}
+
+.text-format{
+  font-size: 2em;
+  background-color: lightgray;
+  padding-left: 1em;
+  border-radius: 15px 15px;
+}
