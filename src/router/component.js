@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import MainPage from '../pages/main-layout/component'
-import User from '../pages/user/component'
-import SignUp from '../pages/user/signup/component'
-import UpdateUser from '../pages/user/updateuser'
+import MainPage from '../pages/MainPage/Mainpage'
+import User from '../pages/user/User'
+import SignUp from '../pages/user/signup/index'
+import UpdateUser from '../pages/user/Deleteupdate'
 
 export class RoutesPage extends Component {
   render () {
