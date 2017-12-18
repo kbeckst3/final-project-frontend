@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import MainNavbar from './pages/main-layout/navbar/component'
+import MainNavbar from './pages/main-layout/navbar/Navbar'
 import RoutesPage from './router/component'
 import { BrowserRouter as Router } from 'react-router-dom'
-import { createBrowserHistory } from 'history'
+
 
 
 class App extends Component {

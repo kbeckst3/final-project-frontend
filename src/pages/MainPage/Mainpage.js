@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 
+
 export class MainPage extends Component {
+
   render () {
     return (
       <div>
-        <h1>Homee Page you know thats right</h1>
+        <h1>Just wait this will be a beatiful Main Page soon</h1>
+
       </div>
     )
   }

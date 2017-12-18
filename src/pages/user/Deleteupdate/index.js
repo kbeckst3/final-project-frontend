@@ -14,6 +14,7 @@ class UpdateUser extends Component {
       email: '',
       password: '',
       updateUser: this.props.updateUserMutation,
+      deleteUser: this.props.deleteUserMutation
     }
   }
 
@@ -32,7 +33,7 @@ class UpdateUser extends Component {
 
   updateForm = (e) => {
     e.preventDefault()
-    window.alert("are you sure?")
+    if (!window.confirm('are you sure?')) return
     const {ID, fullName, email, password, updateUser,} = this.state
     console.log('mutation sending')
     return updateUser({
@@ -48,6 +49,21 @@ class UpdateUser extends Component {
     })
       .catch(err => console.log(err))
   }
+  deleteForm = (e) => {
+    e.preventDefault()
+    if (!window.confirm('are you sure?')) return
+    const {ID, deleteUser} = this.state
+    console.log('mutation sending')
+    return deleteUser({
+      variables: {
+        ID,
+      }
+    }).then(rtn => {
+      console.log('delete successful')
+      this.setState({fireRedirect: true})
+    })
+      .catch(err => console.log(err))
+  }
 
   render () {
     const {fireRedirect} = this.state
@@ -56,7 +72,7 @@ class UpdateUser extends Component {
 
     return (
       <div className="pg-wrap">
-        <Form onSubmit={this.updateForm}>
+        <Form>
           <h1 className="text-format">Update User</h1>
           <FormGroup>
             <Label>Full Name</Label>
@@ -73,7 +89,8 @@ class UpdateUser extends Component {
             <Input value={this.state.password} onChange={(e) => this.setState({password: e.target.value})}
                    type="Password" placeholder="Password"/>
           </FormGroup>
-          <Button type="submit" color="primary">Update</Button>
+          <Button type="submit" color="primary" onClick={this.updateForm}>Update</Button>
+          <Button type="submit" color="danger"onClick={this.deleteForm}>Delete</Button>
         </Form>
         {fireRedirect && <Redirect to={'/user'}/>}
       </div>)
@@ -83,6 +100,15 @@ class UpdateUser extends Component {
 const UPDATE_USER_MUTATION = gql`
     mutation($ID: ID!, $fullName: String!, $email: String!, $password: String!) {
         updateUser(id: $ID,fullName: $fullName, email: $email, password: $password) {
+            fullName
+            email
+            password
+        }
+    }
+`
+const DELETE_USER_MUTATION = gql`
+    mutation($ID: ID!) {
+        deleteUser(id: $ID) {
             fullName
             email
             password
@@ -108,4 +134,4 @@ export default withRouter(compose(
       }
     })
   }),
-  graphql(UPDATE_USER_MUTATION, {name: 'updateUserMutation'}))(UpdateUser))
+  graphql(UPDATE_USER_MUTATION, {name: 'updateUserMutation'}),graphql(DELETE_USER_MUTATION, {name: 'deleteUserMutation'}))(UpdateUser))
