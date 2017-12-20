@@ -4,6 +4,7 @@ import MainPage from '../pages/MainPage/Mainpage'
 import User from '../pages/user/User'
 import SignUp from '../pages/user/signup/index'
 import UpdateUser from '../pages/user/Deleteupdate'
+import { Login } from '../pages/user/Login/index'
 
 export class RoutesPage extends Component {
   render () {
@@ -11,6 +12,7 @@ export class RoutesPage extends Component {
         <Switch>
           <Route exact path='/' component={MainPage}/>
           <Route path='/user/signup' component={SignUp}/>
+          <Route path='/user/login' component={Login}/>
           <Route path='/user/update/:id' component={UpdateUser}/>
           <Route path='/user' component={User}/>
         </Switch>
