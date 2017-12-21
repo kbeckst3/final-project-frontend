@@ -12,7 +12,6 @@ export class RoutesPage extends Component {
         <Switch>
           <Route exact path='/' component={MainPage}/>
           <Route path='/user/signup' component={SignUp}/>
-          <Route path='/user/login' component={Login}/>
           <Route path='/user/update/:id' component={UpdateUser}/>
           <Route path='/user' component={User}/>
         </Switch>

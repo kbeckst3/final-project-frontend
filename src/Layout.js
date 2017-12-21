@@ -4,21 +4,18 @@ import RoutesPage from './router/component'
 import { BrowserRouter as Router } from 'react-router-dom'
 import SideBar from './pages/main-layout/Sidebar/SideBar'
 
-
-
-class App extends Component {
+export default class App extends Component {
   render () {
     return (
-      <Router>
-        <div>
-          <MainNavbar/>
-          <SideBar/>
-          <RoutesPage/>
-        </div>
-      </Router>
-
+        <Router>
+          <div>
+            <MainNavbar/>
+            <SideBar/>
+            <RoutesPage/>
+          </div>
+        </Router>
     )
   }
 }
 
-export default App
+// export default App

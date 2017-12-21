@@ -1,5 +1,12 @@
-.modal{
+.sidebar{
   background-color: grey;
-  border-radius: 5;
-  max-width: ;
+  font-size: 30px;
+  border-radius: 5%;
+  display: flex;
+  float: right;
+  flex-wrap: wrap;
+  margin-top: 200px;
+  margin-right: 10px;
+  width: 150px;
+
 }
